@@ -1,0 +1,29 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav text-center pt-4" mode="side" opened>
+        <img class="w-75" src="/assets/dummy-images/logo.png" alt="logo">
+        <div class="mt-5">
+            <a [routerLink]="['/books']" class="d-flex align-items-center ps-4 py-3">
+                <mat-icon class="text-start">library_books</mat-icon>
+                <h3 class="m-0"><strong>Books</strong></h3>
+            </a>
+        </div>
+    </mat-drawer>
+    <header class="d-flex justify-content-between align-items-center p-3 mb-5" *ngIf="token">
+        <div class="example-sidenav-content">
+            <button type="button" mat-icon-button (click)="openSidebarHandler()">
+                <mat-icon *ngIf="sidebarRef._opened">keyboard_arrow_left</mat-icon>
+                <mat-icon *ngIf="!sidebarRef._opened">keyboard_arrow_right</mat-icon>
+            </button>
+            <h2 class="mb-0 me-3 text-center">Acore admin dashboard</h2>
+        </div>
+        <div *ngIf="token" class="d-flex flex-wrap justify-content-end">
+            <button mat-button [matMenuTriggerFor]="beforeMenu">{{ username }}</button>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <button type="button" mat-menu-item>{{ email }}</button>
+                <button mat-menu-item (click)="logoutHandler()">logout</button>
+            </mat-menu>
+
+        </div>
+    </header>
+    <ng-content></ng-content>
+</mat-drawer-container>

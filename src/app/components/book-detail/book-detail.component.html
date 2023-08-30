@@ -1,0 +1,43 @@
+<div class="container">
+    <h1><strong>{{ pageName }}</strong></h1>
+    <div class="contentWrapper p-5 mb-3">
+        <div class="row">
+            <div class="col-sm-12 col-lg-8">
+                <div class="d-flex bookImage mb-5">
+                    <div>
+                        <img class="w-100" src="/assets/dummy-images/book-cover.jpg" alt="book-cover">
+                    </div>
+                    <div>
+                        <h2><strong>{{ selectedBook?.title }}</strong></h2>
+                        <div class="d-flex justify-content-evenly text-center">
+                            <div>
+                                <h3 class="m-0 w-0"><strong>478</strong></h3>
+                                <span>Pages</span>
+                            </div>
+                            <div>
+                                <h3 class="m-0 w-0"><strong>20h</strong></h3>
+                                <span>To read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <p>Created By {{ selectedBook?.author }} | {{ formatedDate }}</p>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="mb-3"><strong>Category : </strong> <span>{{ selectedBook?.category }}</span></div>
+                        <div class="mb-3"><strong>Version : </strong> <span>{{ selectedBook?.version }}</span></div>
+                        <div class="mb-3"><strong>Price : </strong> <span>$ {{ price }}</span></div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="mb-3"><strong>ISBN : </strong> <span>{{ selectedBook?.ISBN }}</span></div>
+                        <div class="mb-3"><strong>Brief : </strong> <span>{{ selectedBook?.brief }}</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 d-flex flex-row-reverse">
+                <button type="button" mat-raised-button color="primary" (click)="editHanlder()">Edit</button>
+                <button type="button" mat-raised-button class="me-3" color="warn" (click)="openDialog()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

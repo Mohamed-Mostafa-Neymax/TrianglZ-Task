@@ -1,0 +1,8 @@
+.contentWrapper {
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+::ng-deep .contentWrapper .mat-mdc-text-field-wrapper {
+    background-color: #F5F8FF;
+}

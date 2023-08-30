@@ -1,0 +1,49 @@
+<div class="container formContainer">
+    <div class="formWrapper">
+        <div class="row">
+            <div class="col-md-12 col-lg-7 p-0 d-flex justify-content-center align-items-center px-sm-3 px-md-4 px-lg-5">
+                <form 
+                        class="d-flex flex-column rounded p-3 w-100"
+                        [formGroup]="signupForm"
+                        (ngSubmit)="submitHandler()">
+                        <h2 class="mb-4" *ngIf="isLoginMode"><strong>Please enter your username and password to access your account.</strong></h2>
+                        <h2 class="mb-4" *ngIf="!isLoginMode"><strong>Be my guest, create an account and gain the knowledge you need.</strong></h2>
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input class="w-100" matInput formControlName="username">
+                            <mat-error>Username is Required.</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" *ngIf="!isLoginMode">
+                            <mat-label>Email address</mat-label>
+                            <input class="w-100" matInput formControlName="email">
+                            <mat-error>Email address is Required.</mat-error>
+                        </mat-form-field>
+
+
+                        <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input class="w-100" matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+                            <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+                                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error>Password is Required and greater than 4 character</mat-error>
+                        </mat-form-field>
+
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" [disabled]="signupForm.invalid" mat-raised-button color="primary">
+                                {{isLoginMode ? 'Sign in' : 'Sign Up'}}
+                            </button>
+                            <button type="button" (click)="toggleFormStatusHandler()" mat-raised-button color="primary">Switch to {{isLoginMode ? 'sign up' : 'login'}}</button>
+                        </div>
+                        <hr>
+                        <img class="w-25" src="/assets/dummy-images/logo.png" alt="logo">
+                    </form>
+            </div>
+            <div class="col-md-12 col-lg-5 p-0">
+                <div class="formImage"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<!-- <input type="file" (change)="uploadImageHandler($event)"> -->
+
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+        <h1><strong>{{ pageName }}</strong></h1>
+        <div class="contentWrapper p-5 mb-3">
+            <form class="d-flex flex-column rounded" [formGroup]="bookForm" (ngSubmit)="submitHandler()">
+            <div class="row">
+                <div class="col-md-12 col-lg-6">
+        
+                        <mat-form-field appearance="outline" class="mb-3 w-100">
+                            <mat-label>Book title</mat-label>
+                            <input class="w-100" matInput formControlName="title">
+                            <mat-error>Book title is Required.</mat-error>
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="outline" class="mb-3 w-100">
+                            <mat-label>Book author</mat-label>
+                            <input class="w-100" matInput formControlName="author">
+                            <mat-error>Book author is Required.</mat-error>
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="outline" class="mb-3 w-100">
+                            <mat-label>Categories</mat-label>
+                            <mat-select formControlName="category">
+                                <mat-option value="Programming">Programming</mat-option>
+                                <mat-option value="Science fiction">Science fiction</mat-option>
+                                <mat-option value="Historical Fiction">Historical Fiction</mat-option>
+                                <mat-option value="Fantasy">Fantasy</mat-option>
+                                <mat-option value="Romance novel">Romance novel</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="outline" class="mb-3 w-100">
+                            <mat-label>Book price</mat-label>
+                            <input class="w-100" type="number" matInput formControlName="price">
+                            <mat-error>Book price is Required.</mat-error>
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="outline" class="mb-3 w-100">
+                            <mat-label>Book version</mat-label>
+                            <input class="w-100" matInput formControlName="version">
+                            <mat-error>Book version is Required.</mat-error>
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="outline" class="mb-3 w-100">
+                            <mat-label>Book ISBN</mat-label>
+                            <input class="w-100" matInput formControlName="ISBN" pattern="^\d+(?:-\d+)*$" minlength="10" maxlength="13">
+                            <mat-hint>0-00-000-0000</mat-hint>
+                            <mat-error>Book ISBN is Required and its length between 10 and 13.</mat-error>
+                        </mat-form-field>
+                
+                        <mat-form-field appearance="outline" class="mb-3 w-100">
+                            <mat-label>Book release date</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="releaseDate">
+                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-error>Book release date is Required.</mat-error>
+                        </mat-form-field>
+                        
+                
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <ngx-dropzone (change)="onSelect($event)">
+                            <ngx-dropzone-label>Drop it, baby!</ngx-dropzone-label>
+                            <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                            </ngx-dropzone-preview>
+                        </ngx-dropzone>
+                        <br>
+                        <mat-form-field appearance="outline" class="mb-3 w-100">
+                            <mat-label>Book brief</mat-label>
+                            <textarea #textarea matInput formControlName="brief" minlength="10" maxlength="800"></textarea>
+                            <mat-hint align="end">{{textarea.value.length}} / 800</mat-hint>
+                            <mat-error>Book brief is Required and its length between 10 and 800.</mat-error>
+                        </mat-form-field>
+                        <div class="d-flex flex-row-reverse">
+                            <button type="submit" [disabled]="bookForm.invalid" mat-raised-button color="primary">Save</button>
+                            <button type="button" mat-button class="me-3" (click)="cancelHandler()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</mat-dialog-content>

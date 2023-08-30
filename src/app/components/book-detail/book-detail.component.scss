@@ -1,0 +1,19 @@
+.contentWrapper {
+    background-color: #fff;
+    border-radius: 20px;
+    .bookImage {
+        gap: 20px;
+        & > div:first-child {
+            width: 200px;
+        }
+        div:nth-child(2) {
+            span {
+                color: #ADADAD;
+                font-weight: 600;
+            }
+            h3 {
+                color: #364B78;
+            }
+        }
+    }
+}
