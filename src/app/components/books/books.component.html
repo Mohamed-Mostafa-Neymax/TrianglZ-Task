@@ -11,29 +11,21 @@
   </div>
   <div class="tableWrapper overflow-auto">
     <table mat-table [dataSource]="books" class="mat-elevation-z8">
-
-      <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- Position Column -->
       <ng-container matColumnDef="bookTitle">
         <th mat-header-cell *matHeaderCellDef class="text-nowrap">Book Title</th>
         <td mat-cell *matCellDef="let book" class="text-nowrap">{{book.title}}</td>
       </ng-container>
 
-      <!-- Name Column -->
       <ng-container matColumnDef="bookCategory">
         <th mat-header-cell *matHeaderCellDef class="text-nowrap">Book Category</th>
         <td mat-cell *matCellDef="let book" class="text-nowrap">{{book.category}}</td>
       </ng-container>
 
-      <!-- Weight Column -->
       <ng-container matColumnDef="bookAuthor">
         <th mat-header-cell *matHeaderCellDef class="text-nowrap">Book Author</th>
         <td mat-cell *matCellDef="let book" class="text-nowrap">{{book.author}}</td>
       </ng-container>
 
-      <!-- Symbol Column -->
       <ng-container matColumnDef="bookISBN">
         <th mat-header-cell *matHeaderCellDef class="text-nowrap">Book ISBN</th>
         <td mat-cell *matCellDef="let book" class="text-nowrap">{{book.ISBN}}</td>

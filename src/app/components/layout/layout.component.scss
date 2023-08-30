@@ -1,6 +1,4 @@
-header {
-    // background-color: #111967;
-}
+$primaryColor: #F5F8FF;
 
 ::ng-deep header .mat-mdc-form-field {
     width: 220px;
@@ -22,34 +20,32 @@ header {
 ::ng-deep header .mdc-text-field__input,
 header {
     background-color: #fff;
-    // color: #fff !important;
 }
+
+
 
 .example-container {
-    // width: 500px;
     height: 100%;
-    background-color: #F5F8FF;
-}
-
-.example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    h2 {
-        color: #232EB1;
+    background-color: $primaryColor;
+    .example-sidenav {
+        width: 300px;
+        min-width: 250px;
+        a {
+            text-decoration: none;
+            color: #000;
+            gap: 90px;
+            border-right: 5px solid #B5689C;
+            background-color: $primaryColor;
+        }
+    }
+    .example-sidenav-content {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        h2 {
+            color: #232EB1;
+        }
     }
 }
 
-.example-sidenav {
-    // padding: 20px;
-    width: 300px;
-    min-width: 250px;
-    a {
-        text-decoration: none;
-        color: #000;
-        gap: 90px;
-        border-right: 5px solid #B5689C;
-        background-color: #F5F8FF;
-    }
-}
